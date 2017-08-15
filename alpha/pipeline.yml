@@ -1,0 +1,15 @@
+---
+resources:
+- name: on-core
+  type: git
+  source:
+    uri: https://github.com/geoff-reid/on-core.git
+
+jobs:
+- name: job-unittest-on-core
+  public: true
+  plan:
+  - get: on-core
+    trigger: true
+  - task: run-unittest 
+    file: on-core/alpha/unittest.yml
